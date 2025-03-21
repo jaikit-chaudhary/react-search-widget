@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Widget Test</title>
+</head>
+<body>
+  <!-- Container for your widget -->
+  <div id="search-widget-container"></div>
+  
+  <!-- Just load your widget script which now includes React -->
+  <script src="./search-widget.umd.js"></script>
+  
+  <script>
+    window.onload = function() {
+      if (window.SearchWidget && window.SearchWidget.renderSearchWidget) {
+        window.SearchWidget.renderSearchWidget('search-widget-container');
+      } else {
+        console.error("SearchWidget not loaded correctly");
+      }
+    };
+  </script>
+</body>
+</html>

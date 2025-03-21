@@ -1,11 +1,10 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env": {}, // Prevents "process is not defined" errors
+    "process.env": {},
   },
   build: {
     lib: {
@@ -15,12 +14,9 @@ export default defineConfig({
       formats: ["umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      // Remove the external line to bundle React with your widget
       output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
+        name: "SearchWidget",
       },
     },
   },
