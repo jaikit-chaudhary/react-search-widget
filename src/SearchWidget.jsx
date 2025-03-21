@@ -11,7 +11,7 @@ const SearchWidget = () => {
 };
 
 // Function to render the widget dynamically
-export function renderSearchWidget(containerId) {
+function renderSearchWidget(containerId) {
   const container = document.getElementById(containerId);
   if (container) {
     ReactDOM.createRoot(container).render(<SearchWidget />);
@@ -20,7 +20,10 @@ export function renderSearchWidget(containerId) {
   }
 }
 
-// Ensure the function is accessible in UMD format
+// Expose the function globally for UMD
 if (typeof window !== "undefined") {
   window.SearchWidget = { renderSearchWidget };
 }
+
+// Export for module usage
+export { renderSearchWidget };
